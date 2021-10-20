@@ -230,7 +230,7 @@
             }).on('click', function(event) {
                 $.ajax({
                     type: 'POST',
-                    url: 'tank1.php',
+                    url: 'tank2.php',
                     success: function(data) {
                         if (isNaN(data)) {
                             // do not update the tank animation
@@ -251,7 +251,7 @@
             }).on('click', function(event) {
                 $.ajax({
                     type: 'POST',
-                    url: 'tank1.php',
+                    url: 'tank3.php',
                     success: function(data) {
                         if (isNaN(data)) {
                             // do not update the tank animation
@@ -272,7 +272,7 @@
             }).on('click', function(event) {
                 $.ajax({
                     type: 'POST',
-                    url: 'tank1.php',
+                    url: 'tank4.php',
                     success: function(data) {
                         if (isNaN(data)) {
                             // do not update the tank animation
@@ -293,7 +293,7 @@
             }).on('click', function(event) {
                 $.ajax({
                     type: 'POST',
-                    url: 'tank1.php',
+                    url: 'tank5.php',
                     success: function(data) {
                         if (isNaN(data)) {
                             // do not update the tank animation
@@ -314,7 +314,7 @@
             }).on('click', function(event) {
                 $.ajax({
                     type: 'POST',
-                    url: 'tank1.php',
+                    url: 'tank6.php',
                     success: function(data) {
                         if (isNaN(data)) {
                             // do not update the tank animation
@@ -335,7 +335,7 @@
             }).on('click', function(event) {
                 $.ajax({
                     type: 'POST',
-                    url: 'tank1.php',
+                    url: 'tank7.php',
                     success: function(data) {
                         if (isNaN(data)) {
                             // do not update the tank animation
