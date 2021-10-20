@@ -111,61 +111,69 @@
 
             <div class="page-container">
                 <div class="main-content">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tank levels</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile_tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Table View</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content m-t-15" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="col-md-10 offset-col-1">
-                                <div class="page-loader"></div>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <div class="wrap">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="tank waterTankHere1"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </table>
-                                        </div>
-                                    </div>
+                    <div class="col-md-11 offset-col-1">
+                        <div class="page-loader"></div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <label style="margin-left: 100px; font-size: 20px; font-weight: bolder; margin-top: 50px; padding: 0 !important;">
+                                        Tank 1
+                                    </label>
+                                    <div class="tank waterTankHere1"></div>
+                                </div>
+                                <div class="col">
+                                    <label style="margin-left: 100px; font-size: 20px; font-weight: bolder; margin-top: 50px; padding: 0 !important;">
+                                        Tank 2
+                                    </label>
+                                    <div class="tank waterTankHere2"></div>
+                                </div>
+                                <div class="col">
+                                    <label style="margin-left: 100px; font-size: 20px; font-weight: bolder; margin-top: 50px; padding: 0 !important;">
+                                        Tank 3
+                                    </label>
+                                    <div class="tank waterTankHere3"></div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile_tab">
-                            <div class="table-responsive">
-                                <table id="data-table" class="table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Tank</th>
-                                            <th>Litres</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            $count = 1;
-                                            require('conn.php');
-                                            $jew = mysqli_query($conn,"select * from levels order by id desc limit 15") or die(mysql_error($conn));
-                                            while ($jer = mysqli_fetch_assoc($jew)) { ?>
-                                                <tr>
-                                                    <td><?php echo $count; ?></td>
-                                                    <td style="max-width: 100px;">Tank 1</td>
-                                                    <td style="max-width: 100px;"><?php echo $jer['vol']; ?></td>
-                                                </tr>
-                                            <?php $count++; }
-                                        ?>
-                                    </tbody>
-                                </table>
+                            <div class="row">
+                                <div class="col">
+                                    <label style="margin-left: 100px; font-size: 20px; font-weight: bolder; margin-top: 100px; padding: 0 !important;">
+                                        Tank 4
+                                    </label>
+                                    <div class="tank waterTankHere4"></div>
+                                </div>
+                                <div class="col">
+                                    <label style="margin-left: 100px; font-size: 20px; font-weight: bolder; margin-top: 100px; padding: 0 !important;">
+                                        Tank 5
+                                    </label>
+                                    <div class="tank waterTankHere5"></div>
+                                </div>
+                                <div class="col">
+                                    <label style="margin-left: 100px; font-size: 20px; font-weight: bolder; margin-top: 100px; padding: 0 !important;">
+                                        Tank 6
+                                    </label>
+                                    <div class="tank waterTankHere6"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label style="margin-left: 100px; font-size: 20px; font-weight: bolder; margin-top: 100px; padding: 0 !important;">
+                                        Tank 7
+                                    </label>
+                                    <div class="tank waterTankHere7"></div>
+                                </div>
+                                <div class="col">
+                                    <!--<label style="margin-left: 100px; font-size: 20px; font-weight: bolder; margin-top: 100px; padding: 0 !important;">
+                                        Tank 8
+                                    </label>
+                                    <div class="tank waterTankHere8"></div>-->
+                                </div>
+                                <div class="col">
+                                    <!--<label style="margin-left: 100px; font-size: 20px; font-weight: bolder; margin-top: 100px; padding: 0 !important;">
+                                        Tank 9
+                                    </label>
+                                    <div class="tank waterTankHere8"></div>-->
+                                </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -201,7 +209,7 @@
             }).on('click', function(event) {
                 $.ajax({
                     type: 'POST',
-                    url: 'fetch.php',
+                    url: 'tank1.php',
                     success: function(data) {
                         if (isNaN(data)) {
                             // do not update the tank animation
@@ -214,9 +222,163 @@
                     }
                 });
             });
+            $('.waterTankHere2').waterTank({
+                width: 230,
+                height: 300,
+                color: '#8bd0ec',
+                level: 0
+            }).on('click', function(event) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'tank1.php',
+                    success: function(data) {
+                        if (isNaN(data)) {
+                            // do not update the tank animation
+                        }
+                        else {
+                            $('.waterTankHere2').waterTank({
+                                level: data
+                            });
+                        }
+                    }
+                });
+            });
+            $('.waterTankHere3').waterTank({
+                width: 230,
+                height: 300,
+                color: '#8bd0ec',
+                level: 0
+            }).on('click', function(event) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'tank1.php',
+                    success: function(data) {
+                        if (isNaN(data)) {
+                            // do not update the tank animation
+                        }
+                        else {
+                            $('.waterTankHere3').waterTank({
+                                level: data
+                            });
+                        }
+                    }
+                });
+            });
+            $('.waterTankHere4').waterTank({
+                width: 230,
+                height: 300,
+                color: '#8bd0ec',
+                level: 0
+            }).on('click', function(event) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'tank1.php',
+                    success: function(data) {
+                        if (isNaN(data)) {
+                            // do not update the tank animation
+                        }
+                        else {
+                            $('.waterTankHere4').waterTank({
+                                level: data
+                            });
+                        }
+                    }
+                });
+            });
+            $('.waterTankHere5').waterTank({
+                width: 230,
+                height: 300,
+                color: '#8bd0ec',
+                level: 0
+            }).on('click', function(event) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'tank1.php',
+                    success: function(data) {
+                        if (isNaN(data)) {
+                            // do not update the tank animation
+                        }
+                        else {
+                            $('.waterTankHere5').waterTank({
+                                level: data
+                            });
+                        }
+                    }
+                });
+            });
+            $('.waterTankHere6').waterTank({
+                width: 230,
+                height: 300,
+                color: '#8bd0ec',
+                level: 0
+            }).on('click', function(event) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'tank1.php',
+                    success: function(data) {
+                        if (isNaN(data)) {
+                            // do not update the tank animation
+                        }
+                        else {
+                            $('.waterTankHere6').waterTank({
+                                level: data
+                            });
+                        }
+                    }
+                });
+            });
+            $('.waterTankHere7').waterTank({
+                width: 230,
+                height: 300,
+                color: '#8bd0ec',
+                level: 0
+            }).on('click', function(event) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'tank1.php',
+                    success: function(data) {
+                        if (isNaN(data)) {
+                            // do not update the tank animation
+                        }
+                        else {
+                            $('.waterTankHere7').waterTank({
+                                level: data
+                            });
+                        }
+                    }
+                });
+            });
+            $('.waterTankHere8').waterTank({
+                width: 230,
+                height: 300,
+                color: '#8bd0ec',
+                level: 0
+            }).on('click', function(event) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'tank1.php',
+                    success: function(data) {
+                        if (isNaN(data)) {
+                            // do not update the tank animation
+                        }
+                        else {
+                            $('.waterTankHere8').waterTank({
+                                level: 0
+                            });
+                        }
+                    }
+                });
+            });
         });
         setInterval(function(){
            $('.waterTankHere1').trigger('click');
+           $('.waterTankHere2').trigger('click');
+           $('.waterTankHere3').trigger('click');
+           $('.waterTankHere4').trigger('click');
+           $('.waterTankHere5').trigger('click');
+           $('.waterTankHere6').trigger('click');
+           $('.waterTankHere7').trigger('click');
+           $('.waterTankHere8').trigger('click');
         }, 2000);
     </script>
 </body>

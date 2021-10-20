@@ -35,7 +35,8 @@
 			    easing : "_easeOutQuint"
 			});
 
-			$that.find('._percentageTag').text(value + '%');
+			/* Set percentage or decimal */
+			$that.find('._percentageTag').text(((value)*100) + ' lts');
 
 			$that.find('._reflect').stop().animate({
 				height: ($that.find('._tank').height() * value / 100) / 2 + 20 ,
@@ -324,10 +325,10 @@
 		        $percentageTag
 		        .css({
 		        	position: 'absolute',
-		        	right: 75,
-		        	width: 70,
-		        	fontSize: 25,
-		        	top: -320,
+		        	right: -100,
+		        	width: 95,
+		        	fontSize: 20,
+		        	top: 0,
 		        	textAlign: 'left',
 		        	userSelect: 'none',
 		        })
